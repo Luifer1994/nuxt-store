@@ -58,7 +58,7 @@ const handleProductClick = (id: number|string, event: Event) => {
           </svg>
         </button>
       </div>
-      <div class="relative"  @click="handleProductClick(item.id, $event)">
+      <div class="relative" @click="handleProductClick(item.id, $event)">
         <div class="aspect-w-1 aspect-h-1">
           <img class="object-cover w-full h-full" :src="item.images[0]" alt="" />
         </div>
@@ -67,7 +67,7 @@ const handleProductClick = (id: number|string, event: Event) => {
             {{ item.category.name }}
           </p>
           <h3 class="mt-3 text-sm font-medium min-h-[30px]">
-            <a href="javascript:void(0);" title="">
+            <a :href="`/product/${item.id}`" :title="item.title">
               {{ item.title }}
               <span class="absolute inset-0" aria-hidden="true"></span>
             </a>
