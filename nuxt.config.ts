@@ -47,6 +47,14 @@ export default defineNuxtConfig({
   },
   nitro: {
     compressPublicAssets: true,
+    prerender: {
+      routes: [
+        '/',            // Ruta principal
+        '/nuxt-store',  // Asegúrate de que esta ruta exista o sea necesaria
+        '/200.html',    // Personaliza según tus necesidades
+        '/404.html'     // Personaliza según tus necesidades
+      ]
+    }
   },
   build: {},
   runtimeConfig: {
