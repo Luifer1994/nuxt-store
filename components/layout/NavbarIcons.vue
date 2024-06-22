@@ -4,7 +4,9 @@
       type="button"
       class="relative p-1 text-gray-700 bg-white rounded-full dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-300 focus:outline-none hover:bg-gray-100 dark:hover:bg-gray-700"
     >
-      <div class="w-7 h-7 flex items-center justify-center bg-white rounded-full">
+      <div
+        class="w-7 h-7 flex items-center justify-center bg-white rounded-full"
+      >
         <UIcon name="i-heroicons-shopping-bag" class="w-6 h-6" />
       </div>
       <span
@@ -17,22 +19,29 @@
       type="button"
       class="relative p-1 text-gray-700 bg-white rounded-full dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-300 focus:outline-none hover:bg-gray-100 dark:hover:bg-gray-700"
     >
-      <div class="w-7 h-7 flex items-center justify-center bg-white rounded-full">
+      <div
+        class="w-7 h-7 flex items-center justify-center bg-white rounded-full"
+      >
         <UIcon name="i-heroicons-heart" class="w-6 h-6" />
       </div>
       <span
-        class="inline-flex items-center px-1.5 absolute -top-px -right-1 py-0.5 rounded-full text-xs font-semibold bg-indigo-600 text-white"
-      >6</span>
+        class="inline-flex items-center px-1.5 absolute -top-px -right-1 py-0.5 rounded-full text-xs font-semibold bg-rose-500 text-white"
+      >
+        {{ favoriteItems.length }}
+      </span>
     </button>
     <button
       @click="darkModeStore.toggleDarkMode"
       type="button"
       class="p-1 text-gray-700 bg-white rounded-full dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-300 focus:outline-none hover:bg-gray-100 dark:hover:bg-gray-700"
     >
-      <div class="w-7 h-7 flex items-center justify-center bg-white rounded-full">
-        <UIcon 
-        :name="isDarkMode ? 'i-heroicons-moon' : 'i-heroicons-sun'" 
-        class="w-6 h-6" />
+      <div
+        class="w-7 h-7 flex items-center justify-center bg-white rounded-full"
+      >
+        <UIcon
+          :name="isDarkMode ? 'i-heroicons-moon' : 'i-heroicons-sun'"
+          class="w-6 h-6"
+        />
       </div>
     </button>
     <button
@@ -53,13 +62,12 @@
 <script setup lang="ts">
 import { storeToRefs } from "pinia";
 import { useCar } from "@/modules/car/composables/useCar";
+import { useFavorite } from "@/modules/favorites/composables/useFavorite";
 import { useDarkModeStore } from "@/stores/darkModeStore";
 
 // Importar el store y reactividad necesaria
 const darkModeStore = useDarkModeStore();
 const { isDarkMode } = storeToRefs(darkModeStore);
 const { items } = useCar();
-
-
-
+const { items: favoriteItems } = useFavorite();
 </script>

@@ -76,5 +76,8 @@ export default defineNuxtConfig({
       titleTemplate: "%s | Mi Tienda Nuxt 3",
     },
   },
-  plugins: [],
+  plugins: ['~/plugins/useToast.client.ts',],
+  ui: {
+    safelistColors: ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'purple', 'pink'],
+}
 });

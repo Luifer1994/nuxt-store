@@ -2,9 +2,12 @@
 import type { ProductsResponseApi } from "@/modules/products/interfaces/productInterface";
 import { ref, defineProps, computed, defineEmits } from "vue";
 import { useCar } from "@/modules/car/composables/useCar";
+import { useFavorite } from "@/modules/favorites/composables/useFavorite";
 import type { Item } from "@/modules/car/interfaces/carInterfaces";
 
-const { addItem, items } = useCar();
+// Desestructurando con alias
+const { addItem: addCarItem, items: carItems } = useCar();
+const { addItem: addFavoriteItem, items: favoriteItems, removeItem } = useFavorite();
 
 // Define props
 const props = defineProps<{
@@ -29,9 +32,14 @@ const handleProductClick = (id: number | string, event: Event) => {
 };
 
 // Handle favorite click
-const handleFavoriteClick = (id: number | string, event: Event) => {
+const handleFavoriteClick = (item: ProductsResponseApi, event: Event) => {
   event.stopPropagation();
-  console.log(`Favorito clicado: ${id}`);
+  if (isItemInFavorites(item.id)) {
+    removeItem(item.id); // Usando el método alias
+    return;
+  }
+  addFavoriteItem(item); // Usando el método alias
+ /*  toast.add({title: 'Item añadido al fa', description: `${item.title} ha sido añadido al fa`}) */
 };
 
 // Handle add to cart click
@@ -39,12 +47,17 @@ const handleAddToCartClick = (item: ProductsResponseApi, event: Event) => {
   if (isItemInCart(item.id)) return;
   event.stopPropagation();
   let itemToAdd = { ...item, quantity: 1 } as Item;
-  addItem(itemToAdd);
+  addCarItem(itemToAdd); // Usando el método alias
 };
 
 // Validate if item is in cart or not
 const isItemInCart = (id: number) => {
-  return items.value.some((item) => item.id === id);
+  return carItems.value.some((item) => item.id === id); // Usando el alias de items
+};
+
+// Validate if item is in favorites or not
+const isItemInFavorites = (id: number) => {
+  return favoriteItems.value.some((item) => item.id === id); // Usando el alias de items
 };
 </script>
 
@@ -86,10 +99,14 @@ const isItemInCart = (id: number) => {
               <!-- Botón de favorito -->
               <button
                 type="button"
-                class="inline-flex items-center justify-center hover:text-rose-500"
-                @click.stop="handleFavoriteClick(item.id, $event)"
+                class="inline-flex items-center justify-center"
+                :class="
+                  isItemInFavorites(item.id)
+                    ? 'text-rose-500'
+                    : 'hover:text-rose-500'"
+                @click.stop="handleFavoriteClick(item, $event)"
               >
-                <UIcon name="i-heroicons-heart" class="h-6 w-6 font-bold" />
+                <UIcon :name="isItemInFavorites(item.id) ? 'i-heroicons-heart-solid' : 'i-heroicons-heart'" class="h-6 w-6 font-bold" />
               </button>
               <!-- Botón de agregar al carrito -->
               <button

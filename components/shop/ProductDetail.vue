@@ -166,6 +166,19 @@
               <UIcon name="i-heroicons-shopping-bag" class="w-6 h-6 mr-1" />
               Agregar al carrito
             </button>
+            <button
+              type="button"
+              :class="
+                isItemInFavorites(product.id)
+                  ? 'text-rose-500'
+                  : 'hover:text-rose-500'
+              "
+              @click.stop="handleFavoriteClick(product, $event)"
+            >
+              <UIcon 
+              :name="isItemInFavorites(product.id) ? 'i-heroicons-heart-solid' : 'i-heroicons-heart'"
+               class="h-6 w-6 font-bold" />
+            </button>
           </div>
         </div>
       </div>
@@ -202,7 +215,13 @@ import type { ProductsResponseApi } from "@/modules/products/interfaces/productI
 import { validateImageUrl } from "@/utils/validateImageUrl";
 
 import { useCar } from "@/modules/car/composables/useCar";
+import { useFavorite } from "@/modules/favorites/composables/useFavorite";
 const { addItem, items } = useCar();
+const {
+  addItem: addFavoriteItem,
+  items: favoriteItems,
+  removeItem,
+} = useFavorite();
 
 const props = defineProps<{
   product: ProductsResponseApi;
@@ -246,6 +265,20 @@ const handleAddProductToCart = () => {
     quantity: quantity.value,
   };
   addItem(item);
+};
+
+const handleFavoriteClick = (item: ProductsResponseApi, event: Event) => {
+  event.stopPropagation();
+  if (isItemInFavorites(item.id)) {
+    removeItem(item.id); // Usando el método alias
+    return;
+  }
+  addFavoriteItem(item); // Usando el método alias
+};
+
+// Validate if item is in favorites or not
+const isItemInFavorites = (id: number) => {
+  return favoriteItems.value.some((item) => item.id === id); // Usando el alias de items
 };
 </script>
 

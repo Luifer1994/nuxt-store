@@ -1,5 +1,5 @@
 module.exports = {
-  darkMode: 'class', // o 'media' si prefieres usar las preferencias del sistema
+  darkMode: 'class',
   content: [
     './components/**/*.{vue,js}',
     './layouts/**/*.{vue,js}',
@@ -10,7 +10,14 @@ module.exports = {
   theme: {
     extend: {
       maxWidth: {
-        '7xl': '80rem', // Ajusta este valor según tus necesidades
+        '7xl': '80rem',
+      },
+      colors: {
+        primary: '#3490dc',
+        error: '#e3342f',
+        warning: '#f6993f',
+        success: '#38c172',
+        // otros colores que necesites
       },
     },
   },
