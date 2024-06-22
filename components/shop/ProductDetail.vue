@@ -1,6 +1,8 @@
 <template>
   <div class="container mx-auto px-4 mb-5">
-    <div class="lg:col-gap-12 xl:col-gap-16 mt-8 grid grid-cols-1 gap-12 lg:mt-12 lg:grid-cols-5 lg:gap-16">
+    <div
+      class="lg:col-gap-12 xl:col-gap-16 mt-8 grid grid-cols-1 gap-12 lg:mt-12 lg:grid-cols-5 lg:gap-16"
+    >
       <div class="lg:col-span-3 lg:row-end-1">
         <div class="lg:flex lg:items-start">
           <div class="lg:order-2 lg:ml-5">
@@ -26,13 +28,17 @@
                 :key="index"
                 type="button"
                 class="flex-0 aspect-square mb-3 h-20 overflow-hidden rounded-lg border-2 group"
-                :class="index === currentImageIndex ? 'border-gray-900' : 'border-transparent'"
+                :class="
+                  index === currentImageIndex
+                    ? 'border-gray-900'
+                    : 'border-transparent'
+                "
                 @click="currentImageIndex = index"
               >
                 <NuxtImg
                   class="h-full w-full object-cover transition-all duration-300 group-hover:-rotate-3 group-hover:scale-125"
                   :src="image"
-                  :alt="`Image ${index + 1}`"
+                  :alt="`Imagen ${index + 1}`"
                   @error="handleImageError"
                 />
               </button>
@@ -46,53 +52,121 @@
           {{ product.title }}
         </h1>
 
-        <h2 class="mt-8 text-base">Coffee Type</h2>
+        <h2 class="mt-8 text-base">Tipo de Café</h2>
         <div class="mt-3 flex select-none flex-wrap items-center gap-1">
           <label class="">
-            <input type="radio" name="type" value="Powder" class="peer sr-only" checked />
-            <p class="peer-checked:bg-indigo-600 peer-checked:text-white rounded-lg border px-6 py-2 font-bold">Powder</p>
+            <input
+              type="radio"
+              name="type"
+              value="Powder"
+              class="peer sr-only"
+              checked
+            />
+            <p
+              class="peer-checked:bg-indigo-600 peer-checked:text-white rounded-lg border px-6 py-2 font-bold"
+            >
+              Molido
+            </p>
           </label>
           <label class="">
-            <input type="radio" name="type" value="Whole Bean" class="peer sr-only" />
-            <p class="peer-checked:bg-indigo-600 peer-checked:text-white rounded-lg border px-6 py-2 font-bold">Whole Bean</p>
+            <input
+              type="radio"
+              name="type"
+              value="Whole Bean"
+              class="peer sr-only"
+            />
+            <p
+              class="peer-checked:bg-indigo-600 peer-checked:text-white rounded-lg border px-6 py-2 font-bold"
+            >
+              Grano Entero
+            </p>
           </label>
           <label class="">
-            <input type="radio" name="type" value="Groud" class="peer sr-only" />
-            <p class="peer-checked:bg-indigo-600 peer-checked:text-white rounded-lg border px-6 py-2 font-bold">Groud</p>
+            <input
+              type="radio"
+              name="type"
+              value="Ground"
+              class="peer sr-only"
+            />
+            <p
+              class="peer-checked:bg-indigo-600 peer-checked:text-white rounded-lg border px-6 py-2 font-bold"
+            >
+              Molido
+            </p>
           </label>
         </div>
 
-        <h2 class="mt-8 text-base">Choose subscription</h2>
+        <h2 class="mt-8 text-base">Elige una suscripción</h2>
         <div class="mt-3 flex select-none flex-wrap items-center gap-1">
           <label class="">
-            <input type="radio" name="subscription" value="4 Months" class="peer sr-only" />
-            <p class="peer-checked:bg-indigo-600 peer-checked:text-white rounded-lg border px-6 py-2 font-bold">4 Months</p>
-            <span class="mt-1 block text-center text-xs">$80/mo</span>
+            <input
+              type="radio"
+              name="subscription"
+              value="4 Meses"
+              class="peer sr-only"
+            />
+            <p
+              class="peer-checked:bg-indigo-600 peer-checked:text-white rounded-lg border px-6 py-2 font-bold"
+            >
+              4 Meses
+            </p>
+            <span class="mt-1 block text-center text-xs">$80/mes</span>
           </label>
           <label class="">
-            <input type="radio" name="subscription" value="8 Months" class="peer sr-only" checked />
-            <p class="peer-checked:bg-indigo-600 peer-checked:text-white rounded-lg border px-6 py-2 font-bold">8 Months</p>
-            <span class="mt-1 block text-center text-xs">$60/mo</span>
+            <input
+              type="radio"
+              name="subscription"
+              value="8 Meses"
+              class="peer sr-only"
+              checked
+            />
+            <p
+              class="peer-checked:bg-indigo-600 peer-checked:text-white rounded-lg border px-6 py-2 font-bold"
+            >
+              8 Meses
+            </p>
+            <span class="mt-1 block text-center text-xs">$60/mes</span>
           </label>
           <label class="">
-            <input type="radio" name="subscription" value="12 Months" class="peer sr-only" />
-            <p class="peer-checked:bg-indigo-600 peer-checked:text-white rounded-lg border px-6 py-2 font-bold">12 Months</p>
-            <span class="mt-1 block text-center text-xs">$40/mo</span>
+            <input
+              type="radio"
+              name="subscription"
+              value="12 Meses"
+              class="peer sr-only"
+            />
+            <p
+              class="peer-checked:bg-indigo-600 peer-checked:text-white rounded-lg border px-6 py-2 font-bold"
+            >
+              12 Meses
+            </p>
+            <span class="mt-1 block text-center text-xs">$40/mes</span>
           </label>
         </div>
 
-        <div class="mt-10 flex flex-col items-center justify-between space-y-4 border-t border-b py-4 sm:flex-row sm:space-y-0">
+        <div
+          class="mt-10 flex flex-col items-center justify-between space-y-4 border-t border-b py-4 sm:flex-row sm:space-y-0"
+        >
           <div class="flex items-end">
             <h1 class="text-3xl font-bold">$60.50</h1>
-            <span class="text-base">/month</span>
+            <span class="text-base">/mes</span>
           </div>
 
-          <button type="button" class="inline-flex items-center justify-center rounded-md border-2 border-transparent bg-indigo-600 bg-none px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-indigo-500">
-            <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 mr-3 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-            </svg>
-            Add to cart
-          </button>
+          <div class="flex items-center space-x-2">
+            <input
+              type="number"
+              min="1"
+              v-model="quantity"
+              class="w-16 h-12 rounded border text-center"
+            />
+            <button
+              @click="handleAddProductToCart"
+              type="button"
+              class="inline-flex items-center justify-center rounded-md border-2 border-transparent bg-indigo-600 bg-none px-6 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-indigo-500"
+            >
+              <UIcon name="i-heroicons-shopping-bag" class="w-6 h-6 mr-1" />
+              Agregar al carrito
+            </button>
+          </div>
         </div>
       </div>
 
@@ -127,6 +201,9 @@ import { ref, defineProps, watchEffect } from "vue";
 import type { ProductsResponseApi } from "@/modules/products/interfaces/productInterface";
 import { validateImageUrl } from "@/utils/validateImageUrl";
 
+import { useCar } from "@/modules/car/composables/useCar";
+const { addItem, items } = useCar();
+
 const props = defineProps<{
   product: ProductsResponseApi;
 }>();
@@ -134,6 +211,16 @@ const props = defineProps<{
 const currentImageIndex = ref(0);
 const cleanedImages = ref<string[]>([]);
 const currentImageSrc = ref("");
+
+const quantity = ref(1);
+
+//if teh products is present on the car update value the quantity
+watchEffect(() => {
+  const item = items.value.find((item) => item.id === props.product.id);
+  if (item) {
+    quantity.value = item.quantity;
+  }
+});
 
 watchEffect(async () => {
   if (props.product.images.length > 0) {
@@ -151,6 +238,14 @@ watchEffect(async () => {
 
 const handleImageError = (event: Event) => {
   (event.target as HTMLImageElement).src = "/default-img.jpg";
+};
+
+const handleAddProductToCart = () => {
+  const item = {
+    ...props.product,
+    quantity: quantity.value,
+  };
+  addItem(item);
 };
 </script>
 

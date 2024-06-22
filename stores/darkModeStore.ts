@@ -1,4 +1,3 @@
-// stores/darkModeStore.ts
 import { defineStore } from 'pinia'
 import { ref, watch, onMounted } from 'vue'
 
@@ -22,20 +21,18 @@ export const useDarkModeStore = defineStore('darkMode', () => {
     isDarkMode.value = !isDarkMode.value
   }
 
-  if (process.client) {
-    onMounted(() => {
-      initializeDarkMode()
+  onMounted(() => {
+    initializeDarkMode()
 
-      watch(isDarkMode, (newValue) => {
-        localStorage.setItem('isDarkMode', JSON.stringify(newValue))
-        if (newValue) {
-          document.documentElement.classList.add('dark')
-        } else {
-          document.documentElement.classList.remove('dark')
-        }
-      })
+    watch(isDarkMode, (newValue) => {
+      localStorage.setItem('isDarkMode', JSON.stringify(newValue))
+      if (newValue) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
     })
-  }
+  })
 
   return {
     isDarkMode,
