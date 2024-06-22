@@ -1,0 +1,16 @@
+{
+  "extends": "./.nuxt/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"],
+      "@/components/*": ["./components/*"],
+      "@/layouts/*": ["./layouts/*"],
+      "@/pages/*": ["./pages/*"],
+      "@/store/*": ["./store/*"],
+      "#app": ["./node_modules/nuxt/dist/app/index"],
+      "#build": ["./node_modules/nuxt/dist/app/build"],
+      "#imports": ["./node_modules/nuxt/dist/app/imports"]
+    }
+  }
+}

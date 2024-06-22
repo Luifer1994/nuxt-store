@@ -1,0 +1,15 @@
+/* assets/css/tailwind.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+}
+
+/* Clases personalizadas para el modo oscuro */
+.dark .bg-white {
+  background-color: #1a202c;
+}
+.dark .text-black {
+  color: #a0aec0;
+}
