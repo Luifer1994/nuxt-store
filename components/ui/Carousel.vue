@@ -66,19 +66,22 @@ onBeforeUnmount(() => {
       indicators: {
         base: 'rounded-full h-3 w-3',
         active: 'bg-indigo-500',
-        inactive: 'bg-gray-300'
-      }
+        inactive: 'bg-gray-300',
+      },
     }"
     class="rounded-lg overflow-hidden relative w-full"
     indicators
   >
     <div v-if="props.type === 'large'" class="relative w-full group">
-      <NuxtImg width="600" height="400"
+      <NuxtImg
+        width="600"
+        height="400"
         :src="item.src"
         class="w-full h-96 object-cover transition-transform duration-300 ease-in-out group-hover:scale-110"
         draggable="false"
         loading="lazy"
         priority
+        :alt="item.title"
       />
       <div
         class="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-center text-white p-4"

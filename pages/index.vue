@@ -186,6 +186,9 @@ const items = ref(([] as ProductsResponseApi[]) || []);
 const getProducts = await getProductsApi();
 items.value = getProducts.filter((product) => product.images.length > 1);
 
+//deja solo 10 productos
+items.value = items.value.slice(0, 10);
+
 useHead({
   title: "Título de la página específica",
   meta: [
