@@ -72,7 +72,7 @@ const isItemInCart = (id: number) => {
           <p
             class="text-xs font-medium tracking-widest text-gray-400 uppercase"
           >
-            {{ item.category.name }}
+            {{ item.category }}
           </p>
           <h3 class="mt-3 text-sm font-medium min-h-[30px]">
             <a :href="`/product/${item.id}`" :title="item.title">

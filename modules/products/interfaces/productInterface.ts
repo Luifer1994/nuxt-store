@@ -5,8 +5,7 @@ export interface ProductsResponseApi {
     title:       string;
     price:       number;
     description: string;
+    image:      string;
     images:      string[];
-    creationAt:  Date;
-    updatedAt:   Date;
-    category:    Category;
+    category:    string;
 }

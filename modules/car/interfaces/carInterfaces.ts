@@ -5,9 +5,8 @@ export interface Item {
   title: string;
   price: number;
   description: string;
-  category: Category;
-  images: string[];
-  creationAt: Date;
-  updatedAt: Date;
+  image?:      string;
+  images:      string[];
+  category:    string;
   quantity: number;
 }

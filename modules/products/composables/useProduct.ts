@@ -17,7 +17,11 @@ export const useProduct = () => {
   const getProductById = async (id: number | string): Promise<void> => {
     try {
       const data = await getProductApi(id);
-      productStore.setSelectedProduct(data);
+      const product = {
+        ...data,
+        images: [data.image],
+      };
+      productStore.setSelectedProduct(product);
     } catch (err) {
       throw new Error("Error al obtener el producto");
     }

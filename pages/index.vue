@@ -35,7 +35,7 @@
         </div>
 
         <CarouselProducts
-          :items="items"
+          :items="items.slice(9, 17)"
           :interval="3000"
           refDom="category"
           @productClick="handleProductClick"
@@ -103,7 +103,7 @@
         </div>
 
         <CarouselProducts
-          :items="items"
+          :items="items.slice(0, 8)"
           :interval="3000"
           refDom="category"
           @productClick="handleProductClick"
@@ -184,10 +184,13 @@ const route = useRoute();
 
 const items = ref(([] as ProductsResponseApi[]) || []);
 const getProducts = await getProductsApi();
-items.value = getProducts.filter((product) => product.images.length > 1);
-
-//deja solo 10 productos
-items.value = items.value.slice(0, 10);
+//create property in item images to push product image
+items.value = getProducts.map((item) => {
+  return {
+    ...item,
+    images: [item.image],
+  };
+});
 
 useHead({
   title: "Título de la página específica",
