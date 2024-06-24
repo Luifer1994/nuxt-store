@@ -1,1 +1,0 @@
-import{_ as e,c as t,o as c,a as o}from"./DofzhXLn.js";const n={},s=o("h1",{class:"text-4xl font-bold text-center text-gray-900 dark:text-white"}," Seguimos en construcción ",-1),r=[s];function a(_,d){return c(),t("div",null,r)}const l=e(n,[["render",a]]);export{l as default};
