@@ -2,14 +2,14 @@
     <nav v-if="isMenuOpen" class="fixed inset-0 bg-white dark:bg-gray-900 z-50 lg:hidden">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div class="flex items-center justify-between py-4">
-          <a href="#" class="flex">
+          <nuxt-link to="/" class="flex">
             <NuxtImg width="600" height="400"
               class="w-auto h-8 lg:h-10"
               src="https://cdn.rareblocks.xyz/collection/celebration/images/logo.svg"
               alt="Logo"
               loading="lazy"
             />
-          </a>
+          </nuxt-link>
           <button
             type="button"
             class="inline-flex p-2 text-black transition-all duration-200 rounded-md focus:bg-gray-100 dark:focus:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800"
