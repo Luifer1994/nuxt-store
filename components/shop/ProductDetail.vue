@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto px-4 mb-5">
     <div
-      class="lg:col-gap-12 xl:col-gap-16 mt-8 grid grid-cols-1 gap-12 lg:mt-12 lg:grid-cols-5 lg:gap-16"
+      class="lg:col-gap-12 xl:col-gap-16 mt-8 grid grid-cols-1 gap-12 lg:mt-12 lg:grid-cols-5 lg:gap-16 rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800"
     >
       <div class="lg:col-span-3 lg:row-end-1">
         <div class="lg:flex lg:items-start">
@@ -48,7 +48,7 @@
       </div>
 
       <div class="lg:col-span-2 lg:row-span-2 lg:row-end-2">
-        <h1 class="text-2xl font-bold text-gray-900 sm:text-3xl">
+        <h1 class="text-2xl font-bold sm:text-3xl">
           {{ product.title }}
         </h1>
 
@@ -156,12 +156,12 @@
               type="number"
               min="1"
               v-model="quantity"
-              class="w-16 h-12 rounded border text-center"
+              class="w-16 h-10 rounded border text-center"
             />
             <button
               @click="handleAddProductToCart"
               type="button"
-              class="inline-flex items-center justify-center rounded-md border-2 border-transparent bg-indigo-600 bg-none px-6 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-indigo-500"
+              class="inline-flex items-center justify-center rounded-md border-2 border-transparent bg-indigo-600 bg-none px-2 py-2 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-indigo-500"
             >
               <UIcon name="i-heroicons-shopping-bag" class="w-6 h-6 mr-1" />
               Agregar al carrito

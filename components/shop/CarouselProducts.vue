@@ -71,7 +71,7 @@ const isItemInFavorites = (id: number) => {
     :indicators="false"
   >
     <div
-      class="relative overflow-hidden bg-white border border-gray-200 rounded-lg group mx-2 flex flex-col justify-between"
+      class="relative overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-800 group mx-2 flex flex-col justify-between"
     >
       <div class="relative" @click="handleProductClick(item.id, $event)">
         <div class="aspect-w-1 aspect-h-1">

@@ -1,6 +1,8 @@
 <template>
   <div class="flex items-center space-x-3 xs:ml-5 ml-4 lg:ml-10">
-    <button
+    <nuxt-link
+      name="Carrito de compras"
+      to="/car"
       type="button"
       class="relative p-1 text-gray-700 bg-white rounded-full dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-300 focus:outline-none hover:bg-gray-100 dark:hover:bg-gray-700"
     >
@@ -14,8 +16,10 @@
       >
         {{ items.length }}
       </span>
-    </button>
-    <button
+    </nuxt-link>
+    <nuxt-link
+      to="/favorites"
+      name="Favoritos"
       type="button"
       class="relative p-1 text-gray-700 bg-white rounded-full dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-300 focus:outline-none hover:bg-gray-100 dark:hover:bg-gray-700"
     >
@@ -29,7 +33,8 @@
       >
         {{ favoriteItems.length }}
       </span>
-    </button>
+    </nuxt-link>
+
     <button
       @click="darkModeStore.toggleDarkMode"
       type="button"

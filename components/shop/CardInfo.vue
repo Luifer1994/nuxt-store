@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white border rounded-lg p-6 text-center">
+  <div class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800 text-center">
     <div class="flex justify-center mb-4">
       <UIcon :name="icon" class="h-10 w-10 text-gray-500"  />
     </div>
